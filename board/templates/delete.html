@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="text-left">
+            게시물을 정말 삭제하시겠습니까?
+        </div>
+        <form action="/board/templates/delete.html/" method="POST">
+            {% csrf_token %}
+            <div class="btn-group">
+                <button class="btn btn-danger" type="submit">삭제</button>
+                <button class="btn btn-success" type="button"
+                        onclick="loaction.href='{% url 'detail' board_id %}'">취소</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

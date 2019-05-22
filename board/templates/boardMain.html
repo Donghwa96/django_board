@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br>
+    {% for board in boards %}
+    <main role="main" class="container">
+        <div style="background-color:transparent !important" class="jumbotron">
+            <h1>제목 : {{ board.title }}</h1>
+            <br>
+            <h4>작성일 : {{ board.pub_date }}</h4>
+            <br>
+            <h4>작성자 : {{ board.author }}</h4>
+            <br>
+            <p class="lead">{{ board.body | safe }}</p>
+            <br>
+            <a class="btn btn-lg btn-outline-info"
+               href="{% url 'detail' board.id %}"
+               role="button">내용 확인하기 &raquo;</a>
+        </div>
+    </main>
+    {% endfor %}
+
+{% endblock %}
